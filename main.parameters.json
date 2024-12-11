@@ -1,18 +1,17 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-      "containerRegistryName": {
-        "value": "practicalacr"
-      },
-      "appServicePlanName": {
-        "value": "flask-app-service-plan"
-      },
-      "webAppName": {
-        "value": "flask-anthony-webapp"
-      },
-      "location": {
-        "value": "westeurope"
-      }
+    "containerRegistryName": {
+      "value": "practicalacr"
+    },
+    "location": {
+      "value": "West Europe"
+    },
+    "appServicePlanName": {
+      "value": "flask-app-service-plan"
+    },
+    "webAppName": {
+      "value": "flask-anthony-webapp"
+    },
+    "acrAdminPassword": {
+      "value": "your_acr_password_here"
     }
   }
