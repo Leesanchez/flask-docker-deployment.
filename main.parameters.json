@@ -9,7 +9,10 @@
         "value": "flask-app-service-plan"
       },
       "webAppName": {
-        "value": "flask-webapp"
+        "value": "flask-anthony-webapp"
+      },
+      "location": {
+        "value": "westeurope"
       }
     }
   }
