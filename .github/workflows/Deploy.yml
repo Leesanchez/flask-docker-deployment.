@@ -6,23 +6,26 @@ on:
       - main
 
 jobs:
-  deploy:
+  deploy-to-azure:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - name: Set up Azure CLI
-        uses: azure/setup-azurecli@v1
-
+      # Log in to Azure
       - name: Log in to Azure
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Deploy Bicep template
-        run: |
-          az deployment group create \
-            --resource-group BCSAI2024-DEVOPS-STUDENTS-B-DEV \
-            --template-file main.bicep \
-            --parameters main.parameters.json
+      # Deploy the Bicep files to Azure
+      - name: Deploy Bicep file
+        uses: azure/cli@v1
+        with:
+          azcliversion: latest
+          inlineScript: |
+            az deployment group create \
+              --resource-group BCSAI2024-DEVOPS-STUDENTS-B-DEV \
+              --template-file main.bicep \
+              --parameters @main.parameters.json
